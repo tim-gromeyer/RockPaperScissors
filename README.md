@@ -1,5 +1,7 @@
 # RockPaperScissors
 
+![Exampl images](doc/images/Example.png)
+
 ## Features
 
 - Resource poor

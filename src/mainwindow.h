@@ -1,14 +1,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QWidget>
+#include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 class QPixmap;
 QT_END_NAMESPACE
 
-class MainWindow : public QWidget
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
@@ -18,6 +18,7 @@ public:
 
 private slots:
     void onInput();
+    void onHelpDialog();
 
 private:
     Ui::MainWindow *ui;
