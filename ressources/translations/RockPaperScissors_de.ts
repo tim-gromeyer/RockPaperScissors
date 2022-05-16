@@ -6,6 +6,7 @@
     <message>
         <location filename="../../ui/mainwindow.ui" line="14"/>
         <location filename="../../ui/mainwindow.ui" line="38"/>
+        <location filename="../../src/mainwindow.cpp" line="53"/>
         <source>Rock Paper Scissors</source>
         <translation>Schere Stein Papier</translation>
     </message>
@@ -35,42 +36,47 @@
         <translation>&amp;Datei</translation>
     </message>
     <message>
-        <location filename="../../ui/mainwindow.ui" line="198"/>
+        <location filename="../../ui/mainwindow.ui" line="200"/>
         <source>&amp;Help</source>
         <translation>&amp;Hilfe</translation>
     </message>
     <message>
-        <location filename="../../ui/mainwindow.ui" line="210"/>
+        <location filename="../../ui/mainwindow.ui" line="212"/>
         <source>&amp;Quit</source>
         <translation>&amp;Beenden</translation>
     </message>
     <message>
-        <location filename="../../ui/mainwindow.ui" line="213"/>
+        <location filename="../../ui/mainwindow.ui" line="215"/>
         <source>Ctrl+Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ui/mainwindow.ui" line="225"/>
+        <location filename="../../ui/mainwindow.ui" line="227"/>
         <source>&amp;About</source>
-        <translation>Über</translation>
+        <translation>Ü&amp;ber</translation>
     </message>
     <message>
-        <location filename="../../ui/mainwindow.ui" line="233"/>
+        <location filename="../../ui/mainwindow.ui" line="235"/>
         <source>About &amp;Qt</source>
         <translation>Über &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../../ui/mainwindow.ui" line="245"/>
+        <location filename="../../ui/mainwindow.ui" line="247"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../../ui/mainwindow.ui" line="248"/>
+        <location filename="../../ui/mainwindow.ui" line="250"/>
         <source>F1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="41"/>
+        <location filename="../../ui/mainwindow.ui" line="255"/>
+        <source>Try again</source>
+        <translation>Erneut versuchen</translation>
+    </message>
+    <message>
+        <location filename="../../src/mainwindow.cpp" line="43"/>
         <source>&lt;h2&gt;What are the rules?&lt;/h2&gt;&lt;p&gt;The rules are very simple and probably you remember them from your childhood:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;If you choose Rock, you will win against Scissors but lose against Paper.&lt;/li&gt;&lt;li&gt;If you choose Scissors, you will win against Paper but lose against Rock.&lt;/li&gt;&lt;li&gt;If you choose Paper, you will win against Rock but lose against Scissors.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;There can be 3 to 5 rounds. The game ends when somebody gets 3 wins. If you want to play again, just click “Play again” button after a game is finished.&lt;/p&gt;</source>
         <translation>&lt;h2&gt;Was sind die Regeln?&lt;/h2&gt;
 &lt;p&gt;Die Regeln sind sehr einfach und Sie kennen sie wahrscheinlich noch aus Ihrer Kindheit:&lt;/p&gt;
@@ -85,12 +91,6 @@
 <context>
     <name>helpDialog</name>
     <message>
-        <location filename="../../src/helpdialog.ui" line="14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/helpdialog.ui" line="20"/>
         <source>&lt;h2&gt;What are the rules?&lt;/h2&gt;
 &lt;p&gt;The rules are very simple and probably you remember them from your childhood:&lt;/p&gt;
 &lt;ul&gt;
@@ -99,7 +99,7 @@
 &lt;li&gt;If you choose Paper, you will win against Rock but lose against Scissors.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;There can be 3 to 5 rounds. The game ends when somebody gets 3 wins. If you want to play again, just click “Play again” button after a game is finished.&lt;/p&gt;</source>
-        <translation>&lt;h2&gt;Was sind die Regeln?&lt;/h2&gt;
+        <translation type="vanished">&lt;h2&gt;Was sind die Regeln?&lt;/h2&gt;
 &lt;p&gt;Die Regeln sind sehr einfach und Sie kennen sie wahrscheinlich noch aus Ihrer Kindheit:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Wenn Sie Rock wählen, gewinnen Sie gegen Scissors, verlieren aber gegen Paper.&lt;/li&gt;
