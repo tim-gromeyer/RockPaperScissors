@@ -3,32 +3,34 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
-#include <QLibraryInfo>
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    a.setApplicationVersion(QStringLiteral(APP_VERSION));
+
+    constexpr QChar underscore[1] = {
+        QLatin1Char('_')
+    };
 
     QTranslator translator, qtTranslator;
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
-    const QString path(QLibraryInfo::path(QLibraryInfo::TranslationsPath));
-#else
-    const QString path(QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-#endif
-
-    const QString lang(QLocale::system().name());
 
     // load translation for Qt
-    if (qtTranslator.load(QStringLiteral("qt_") + lang, path))
-        a.installTranslator(&qtTranslator);
-    else if (qtTranslator.load(QStringLiteral("qt_") + lang, QStringLiteral("translations")))
+    if (qtTranslator.load(QLocale::system(), QStringLiteral("qtbase"),
+                          QString::fromRawData(underscore, 1),
+                          QStringLiteral(
+                              ":/qtTranslations/")))
         a.installTranslator(&qtTranslator);
 
     // try to load translation for current locale from resource file
-    if (translator.load(QStringLiteral("RockPaperScissors_") + lang, QStringLiteral(":/i18n")))
+    if (translator.load(QLocale::system(), QStringLiteral("RockPaperScissors"),
+                        QString::fromRawData(underscore, 1),
+                        QStringLiteral(":/translations")))
         a.installTranslator(&translator);
+
     MainWindow w;
     w.show();
+
     return a.exec();
 }

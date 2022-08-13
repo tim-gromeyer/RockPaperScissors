@@ -18,7 +18,8 @@ public:
 
 private slots:
     void onInput();
-    void onHelpDialog();
+    void onHelpContext();
+    void onHelpAbout();
 
 private:
     Ui::MainWindow *ui;

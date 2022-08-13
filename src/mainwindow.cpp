@@ -2,10 +2,10 @@
 #include "ui_mainwindow.h"
 
 #include <random>
-#include <QDebug>
 #include <QMessageBox>
 
 
+// TODO: Add score
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -29,7 +29,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->paperButton->setFocus();
 
     connect(ui->actionHelp, &QAction::triggered,
-            this, &MainWindow::onHelpDialog);
+            this, &MainWindow::onHelpContext);
+    connect(ui->action_About, &QAction::triggered,
+            this, &MainWindow::onHelpAbout);
     connect(ui->actionAbout_Qt, &QAction::triggered,
             qApp, &QApplication::aboutQt);
 
@@ -37,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
             ui->tryAgainButton, &QPushButton::click);
 }
 
-void MainWindow::onHelpDialog()
+void MainWindow::onHelpContext()
 {
     QMessageBox d(this);
     d.setText(tr("<h2>What are the rules?</h2>"
@@ -55,6 +57,30 @@ void MainWindow::onHelpDialog()
     d.exec();
 }
 
+void MainWindow::onHelpAbout()
+{
+    QMessageBox::about(this, tr("About RockPaperScissors"), tr("<h2>RockPaperScissors</h2>\n"
+                                                               "<p>RockPaperScissors is, as the name suggests a scissor stone paper game.</p>\n"
+                                                               "<h2>About</h2>\n"
+                                                               "<table class=\"table\" style=\"border-style: none;\">\n"
+                                                               "<tbody>\n"
+                                                               "<tr>\n"
+                                                               "<td>Version:</td>\n"
+                                                               "<td>%1</td>\n"
+                                                               "</tr>\n"
+                                                               "<tr>\n"
+                                                               "<td>Qt Version:</td>\n"
+                                                               "<td>%2</td>\n"
+                                                               "</tr>\n"
+                                                               "<tr>\n"
+                                                               "<td>Homepage:</td>\n"
+                                                               "<td><a href=\"https://github.com/software-made-easy/RockPaperScissors\">https://github.com/software-made-easy/RockPaperScissors</a></td>\n"
+                                                               "</tr>\n"
+                                                               "</tbody>\n"
+                                                               "</table>"
+                                                               ).arg(QStringLiteral(APP_VERSION), qVersion()));
+}
+
 void MainWindow::onInput()
 {
     QPushButton *btn = qobject_cast<QPushButton*>(sender());
@@ -62,11 +88,11 @@ void MainWindow::onInput()
     const QPixmap pixmap = btn->icon().pixmap(60, 60);
     ui->youLabel->setPixmap(pixmap);
 
-    std::random_device rd; // obtain a random number from hardware
-    std::mt19937 gen(rd()); // seed the generator
-    std::uniform_int_distribution<> distr(1, 3); // define the range
+    static std::random_device rd; // obtain a random number from hardware
+    static std::mt19937 gen(rd()); // seed the generator
+    static std::uniform_int_distribution<int> distr(1, 3); // define the range
 
-    const int i = distr(gen); // generate numbers
+    const auto i = distr(gen); // generate numbers
 
     switch (i) {
     case 1:
